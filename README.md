@@ -3,19 +3,8 @@
 
 ## WirelessRedstone
 Welcome on the official page of the Wireless Redstone plugin. [Spigot page.](https://www.spigotmc.org/resources/wirelessredstone.8251/)
-![This plugin is no longer maintained](https://i.imgur.com/06ydeF5.png)
 
-
-### Translation
-Do you want to see the plugin in your favourite language / native language? 
-It will be possible in the next version. 
-The process is very simple for you and me, you just have to go on [this website](https://www.transifex.com/bart0110/wirelessredstone/), and fill the language of your choice.
-
-### Metrics
-[MCStats < v4.0.0](http://mcstats.org/plugin/WirelessRedstone) | [bStats >= v4.0.0](https://bstats.org/plugin/bukkit/WirelessRedstone)
-
-### Sentry
-This plugin uses [Sentry](https://sentry.io/) to quickly investigate plugin errors/exceptions. You can disable this in the config. 
+This repository contains a fork which will not be actively maintained. I'm not delivering support on this plugin.
 
 ## Maven
 Maven >3.5.0 is required to build this plugin due to the revision tag.
@@ -27,10 +16,7 @@ Maven >3.5.0 is required to build this plugin due to the revision tag.
 |-------------------------    |----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------    |
 | ConfigVersion               | You should NOT change this value yourself!                                                                                                                                                                                                                                                                                                                   |
 | Language                    | Change the language of the plugin. It falls back to English if the language is not found. For more info see the Translate section.                                                                                                                                                                                                                           |
-| ColourfulLogging            | Add colours to logging.                                                                                                                                                                                                                                                                                                                                      |
-| CheckForUpdates             | Get a message when an update is available.                                                                                                                                                                                                                                                                                                                   |
-| Metrics                     | Enable anonymous metrics.                                                                                                                                                                                                                                                                                                                                    |
-| Sentry                      | Enable Sentry services. This service automatically sends exceptions to a central server to quickly investigate problems.                                                                                                                                                                                                                                     |
+| ColourfulLogging            | Add colours to logging.                                                                                                                                                               |
 | SilentMode                  | Disable most of the feedback if the user doesn't have permissions.                                                                                                                                                                                                                                                                                           |
 | DebugMode                   | Print more information to the console.                                                                                                                                                                                                                                                                                                                       |
 | DropSignWhenBroken          | Drop a sign item if a WirelessChannel is destroyed.                                                                                                                                                                                                                                                                                                          |
