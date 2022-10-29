@@ -2,24 +2,18 @@ package net.licks92.wirelessredstone;
 
 import net.licks92.wirelessredstone.commands.Admin.AdminCommandManager;
 import net.licks92.wirelessredstone.commands.CommandManager;
+import net.licks92.wirelessredstone.compat.InternalProvider;
 import net.licks92.wirelessredstone.compat.InternalWorldEditHooker;
 import net.licks92.wirelessredstone.listeners.BlockListener;
 import net.licks92.wirelessredstone.listeners.PlayerListener;
 import net.licks92.wirelessredstone.listeners.WorldListener;
 import net.licks92.wirelessredstone.materiallib.MaterialLib;
-import net.licks92.wirelessredstone.signs.*;
 import net.licks92.wirelessredstone.storage.StorageConfiguration;
 import net.licks92.wirelessredstone.storage.StorageManager;
 import net.licks92.wirelessredstone.string.StringManager;
 import net.licks92.wirelessredstone.string.Strings;
-import net.licks92.wirelessredstone.worldedit.WorldEditLoader;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.concurrent.Callable;
 
 public class WirelessRedstone extends JavaPlugin {
 
@@ -135,7 +129,8 @@ public class WirelessRedstone extends JavaPlugin {
         getCommand("wra").setTabCompleter(adminCommandManager);
 
         if (pm.isPluginEnabled("WorldEdit")) {
-            new WorldEditLoader();
+            InternalProvider.getCompatWorldEditHooker().register();
+            WirelessRedstone.getWRLogger().debug("Hooked into WorldEdit");
         }
     }
 
