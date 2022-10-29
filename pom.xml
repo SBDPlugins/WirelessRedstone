@@ -5,42 +5,69 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>net.licks92</groupId>
-    <artifactId>WirelessRedstone-parent</artifactId>
-    <version>${revision}</version>
+    <artifactId>WirelessRedstone</artifactId>
+    <version>4.1</version>
+    <packaging>jar</packaging>
+
     <name>WirelessRedstone</name>
 
-    <packaging>pom</packaging>
     <description>WirelessRedstone plugin for bukkit! Make bigger circuits with less wires!</description>
-
     <properties>
-        <revision>4.0.4</revision>
-
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <maven.compiler.source>1.8</maven.compiler.source>
-
-        <project.mcversion>1.14.3</project.mcversion>
-        <project.cbversion>${project.mcversion}-R0.1-SNAPSHOT</project.cbversion>
-        <project.semverversion>0.9.0</project.semverversion>
-
-        <project.sentry.version>1.7.23</project.sentry.version>
-        <project.sentry.dsn>https://7c45ccc4745f428f81d577b15c84b840@sentry.io/1509557</project.sentry.dsn>
     </properties>
 
-    <modules>
-        <module>core</module>
-
-        <module>spigot_1_8</module>
-        <module>spigot_1_13</module>
-
-        <module>worldedit_6</module>
-        <module>worldedit_7</module>
-
-       <module>dist</module>
-    </modules>
-
+    <!-- Build -->
     <build>
-        <defaultGoal>clean install</defaultGoal>
+        <defaultGoal>clean package</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.10.1</version>
+                <configuration>
+                    <release>11</release>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <minimizeJar>true</minimizeJar>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                            <relocations>
+                                <relocation>
+                                    <pattern>com.google.gson</pattern>
+                                    <shadedPattern>net.licks92.wirelessredstone.libs.json</shadedPattern>
+                                </relocation>
+                                <relocation>
+                                    <pattern>org.jetbrains.annotations</pattern>
+                                    <shadedPattern>net.licks92.wirelessredstone.libs.annotations</shadedPattern>
+                                </relocation>
+                            </relocations>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>plugin.yml</include>
+                    <include>config.yml</include>
+                    <include>database/*</include>
+                    <include>languages/*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
     <dependencies>
@@ -48,7 +75,45 @@
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
-            <version>13.0</version>
+            <version>23.0.0</version>
+        </dependency>
+
+        <!-- Spigot API includes the Bukkit API and is what plugins generally use -->
+        <dependency>
+            <groupId>org.spigotmc</groupId>
+            <artifactId>spigot-api</artifactId>
+            <version>1.19.2-R0.1-SNAPSHOT</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.sk89q.worldedit</groupId>
+            <artifactId>worldedit-bukkit</artifactId>
+            <version>7.2.9</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>spigot-repo</id>
+            <url>https://hub.spigotmc.org/nexus/content/groups/public/</url>
+        </repository>
+        <repository>
+            <id>enginehub-maven</id>
+            <url>https://maven.enginehub.org/repo/</url>
+        </repository>
+    </repositories>
 </project>
