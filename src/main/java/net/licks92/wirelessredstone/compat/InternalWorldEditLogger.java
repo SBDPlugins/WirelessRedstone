@@ -35,7 +35,7 @@ public class InternalWorldEditLogger extends AbstractDelegateExtent {
             return;
         }
 
-        Block block = world.getBlockAt(position.getBlockX(), position.getBlockY(), position.getBlockZ());
+        Block block = world.getBlockAt(position.x(), position.y(), position.z());
         if (WirelessRedstone.getSignManager().isWirelessRedstoneSign(block)) {
             Sign sign = (Sign) block.getState();
             String channelName = sign.getLine(1);
