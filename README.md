@@ -1,21 +1,16 @@
-### Status
-[![Build Status](https://travis-ci.org/WirelessRedstoneGroup/WirelessRedstone.svg?branch=master)](https://travis-ci.org/WirelessRedstoneGroup/WirelessRedstone)
-
 ## WirelessRedstone
-Welcome on the official page of the Wireless Redstone plugin. [Spigot page.](https://www.spigotmc.org/resources/wirelessredstone.8251/)
 
-This repository contains a fork which will not be actively maintained. I'm not delivering support on this plugin.
+This resource contains a fork of the Wireless Redstone plugin.
+[Spigot page](https://www.spigotmc.org/resources/wirelessredstone-1-20.118121/)
+[Polymart page](https://polymart.org/resource/wirelessredstone-1-20.6130)
 
 ### Changes
+
 - Changed native API version to Spigot 1.19.2
 - Moved plugin to Java 11
 - Dropped support for Spigot 1.12.x and lower, also dropped support for WorldEdit 6
 - Removed updatechecker, metrics and sentry
 - Updated dependencies
-
-## Maven
-Maven >3.5.0 is required to build this plugin due to the revision tag.
-[https://stackoverflow.com/questions/10582054/maven-project-version-inheritance-do-i-have-to-specify-the-parent-version/51969067#51969067](https://stackoverflow.com/questions/10582054/maven-project-version-inheritance-do-i-have-to-specify-the-parent-version/51969067#51969067)
 
 ## Config
 
