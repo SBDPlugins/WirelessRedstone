@@ -79,19 +79,12 @@ public class WirelessRedstone extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-
-        if (!Utils.isCompatible()) {
-            WRLogger.severe("**********");
-            WRLogger.severe("This plugin isn't compatible with this Minecraft version! Please check the bukkit/spigot page.");
-            WRLogger.severe("**********");
-            getPluginLoader().disablePlugin(this);
-        }
+        WRLogger = new WRLogger("[WirelessRedstone]", getServer().getConsoleSender(), config.getDebugMode(), config.getColorLogging());
 
         new MaterialLib(this).initialize();
 
         config = ConfigManager.getConfig();
         config.update(CHANNEL_FOLDER);
-        WRLogger = new WRLogger("[WirelessRedstone]", getServer().getConsoleSender(), config.getDebugMode(), config.getColorLogging());
         stringManager = new StringManager(config.getLanguage());
 
         storageManager = new StorageManager(config.getStorageType(), CHANNEL_FOLDER);
