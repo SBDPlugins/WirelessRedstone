@@ -6,8 +6,8 @@ This resource contains a fork of the Wireless Redstone plugin.
 
 ### Changes
 
-- Changed native API version to Spigot 1.19.2
-- Moved plugin to Java 11
+- Changed native API version to Spigot 1.21
+- Moved plugin to Java 17
 - Dropped support for Spigot 1.12.x and lower, also dropped support for WorldEdit 6
 - Removed updatechecker, metrics and sentry
 - Updated dependencies
