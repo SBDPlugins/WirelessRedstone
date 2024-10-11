@@ -11,28 +11,8 @@ import java.util.Arrays;
 import java.util.Collection;
 
 public class Utils {
-
     private static final BlockFace[] axis = {BlockFace.SOUTH, BlockFace.WEST, BlockFace.NORTH, BlockFace.EAST};
     private static final BlockFace[] fullAxis = {BlockFace.SOUTH, BlockFace.WEST, BlockFace.NORTH, BlockFace.EAST, BlockFace.UP, BlockFace.DOWN};
-
-
-    /**
-     * This checks if the current Minecraft server version is compatible with WirelessRedstone.
-     *
-     * @return If the plugin is compatible
-     */
-    public static boolean isCompatible() {
-        final String packageName = Bukkit.getServer().getClass().getPackage().getName();
-        String bukkitVersion = packageName.substring(packageName.lastIndexOf('.') + 1);
-
-        try {
-            String[] pieces = bukkitVersion.substring(1).split("_");
-
-            return Integer.parseInt(pieces[0]) >= 1 && Integer.parseInt(pieces[1]) >= 8;
-        } catch (NumberFormatException | NullPointerException e) {
-            return false;
-        }
-    }
 
     /**
      * This checks if the new material system is in place.
